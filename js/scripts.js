@@ -331,25 +331,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-const disclaimerBtn = document.getElementById('disclaimerBtn');
-const disclaimerContent = document.getElementById('disclaimerContent');
-
-disclaimerBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    disclaimerContent.classList.toggle('show');
-    disclaimerBtn.classList.toggle('active');
-});
-
-document.addEventListener('click', function() {
-    disclaimerContent.classList.remove('show');
-    disclaimerBtn.classList.remove('active');
-});
-
-disclaimerContent.addEventListener('click', function(e) {
-    e.stopPropagation();
-});
-
 console.log(nombre);
-
-
 
