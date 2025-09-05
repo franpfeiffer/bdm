@@ -3871,7 +3871,7 @@ img#responsive-img {
     max-width: 1400px;
     margin: auto;
     background: var(--bg-white);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     will-change: auto;
@@ -8284,7 +8284,7 @@ button.btn-close {
     background: white;
     min-width: 300px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border-radius: 4px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     z-index: 1000;
     top: 100%;
     left: 0;
