@@ -287,29 +287,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentDate = new Date();
 
     // Si no hay fecha guardada o ya ha pasado más de 1 día, permitir mostrar el pop-up
-    if (!lastPopupShown || daysBetween(new Date(lastPopupShown), currentDate) >= popupDisplayTime) {
-        const triggerElement = document.getElementById('prevencion');
-        const modalElement = document.getElementById('exampleModalToggle');
+if (!lastPopupShown || daysBetween(new Date(lastPopupShown), currentDate) >= popupDisplayTime) {
+    const modalElement = document.getElementById('exampleModalToggle');
 
-        if (triggerElement && modalElement) {
-            const modal = new bootstrap.Modal(modalElement);
+    if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
 
-            function checkVisibility() {
-                const rect = triggerElement.getBoundingClientRect();
-                const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+        function checkIfAtBottom() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
 
-                if (isVisible) {
-                    modal.show();
-                    localStorage.setItem('popupShownDate', currentDate.toISOString());
-                    window.removeEventListener('scroll', checkVisibility);
-                }
+            if (scrollTop + windowHeight >= documentHeight - 50) {
+                modal.show();
+                localStorage.setItem('popupShownDate', currentDate.toISOString());
+                window.removeEventListener('scroll', checkIfAtBottom);
             }
-
-            window.addEventListener('scroll', checkVisibility);
         }
-    } else {
-        console.log('El pop-up ya se mostró recientemente, no se mostrará de nuevo.');
+        window.addEventListener('scroll', checkIfAtBottom);
     }
+}
 
     // Manejo de tabs de entrevistas
     const medicosTab = document.getElementById('entrevistaMedicos');
