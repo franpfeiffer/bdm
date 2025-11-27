@@ -4689,7 +4689,6 @@ img#responsive-img {
 
 
     .image-container {
-
         width: 250px;
         height: 400px;
         right: 49px;
@@ -4725,9 +4724,6 @@ img#responsive-img {
     }
 
     .banner {
-
-
-
         display: flex;
         justify-content: left;
         align-items: center;
@@ -4743,10 +4739,6 @@ img#responsive-img {
     .columna-sintomas.footer {
         font-size: 22px;
     }
-
-
-
-
 }
 
 @media (max-width:1280px) {
